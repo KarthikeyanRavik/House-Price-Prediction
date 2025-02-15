@@ -9,7 +9,7 @@ app = Flask(__name__)  # Initialize Flask app
 
 # Read the CSV file
 data = pd.read_csv("Cleaned_Bengaluru_House_Data.csv")
-model_path = "C:\\Users\\karthikeyan\\Videos\\course\\Machine learning project\\House Price prediction\\House price prediction\\RidgeModel.pkl"
+model_path = "RidgeModel.pkl"
 pipe = pickle.load(open(model_path,'rb'))
 
 @app.route('/')  # Route to home page
