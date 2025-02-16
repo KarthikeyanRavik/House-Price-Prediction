@@ -4,6 +4,8 @@ import pickle
 import sklearn
 import numpy as np
 import locale
+import os
+
 
 app = Flask(__name__)  # Initialize Flask app
 
@@ -36,4 +38,5 @@ def predict():
     return formatted_price
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)  # Run Flask on port 5001
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host="0.0.0.0", port=port)  # Run Flask on port 5001
