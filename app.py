@@ -35,5 +35,5 @@ def predict():
 
     return formatted_price
 
-if __name__ == "__main__":
+if __name__ == "__app__":
     app.run(debug=True, port=5001)  # Run Flask on port 5001
