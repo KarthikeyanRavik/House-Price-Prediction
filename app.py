@@ -9,11 +9,17 @@ import os
 
 app = Flask(__name__)  # Initialize Flask app
 
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get the current directory
+
 # Read the CSV file
-csv_path = os.path.join(os.path.dirname(__file__), "Cleaned_Bengaluru_House_Data.csv")
+csv_path = os.path.join(BASE_DIR, "Cleaned_Bengaluru_House_Data.csv")
 data = pd.read_csv(csv_path,encoding="utf-8")
-model_path = "RidgeModel.pkl"
-pipe = pickle.load(open(model_path,'rb'))
+
+# Load the model
+model_path = os.path.join(BASE_DIR, "RidgeModel.pkl")
+pipe = pickle.load(open(model_path, 'rb'))
+
 
 @app.route('/')  # Route to home page
 def index():
